@@ -1,3 +1,3 @@
 # AstroScrubbers 🌌🧽 
 
-wow amazing wow
+A project for CSPC.
