@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            body {
+                background: #000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+                margin: 0;
+            }
+            .container {
+                width: 100vw;
+                height: 100vh;
+                position: relative;
+            }
+            .earth {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            .satelites {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            .satelite {
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+                margin: 120px;
+            }
+            .satelite::before {
+                content: "";
+            }
+            .satelite:nth-child(1) {
+                top: 0;
+                left: 0;
+                animation: spin 5s linear infinite;
+            }
+            .satelite:nth-child(2) {
+                top: 0;
+                right: 0;
+                animation: spin 5s linear infinite;
+            }
+            .satelite:nth-child(3) {
+                bottom: 0;
+                right: 0;
+                animation: spin 5s linear infinite;
+            }
+            .satelite:nth-child(4) {
+                bottom: 0;
+                left: 0;
+                animation: spin 5s linear infinite;
+            }
+            .satelite img {
+                width: 100%;
+            }
+            .earth img {
+                width: 300px;
+            }
+            @keyframes spin {
+                from {
+                    transform: translate(-50%, -50%) rotate(-360deg);
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="earth">
+                <img src="./img/earth.webp" alt="">
+            </div>
+            <div class="satelites">
+                <div class="satelite"><img src="./img/satelite.png" alt=""></div>
+                <div class="satelite"><img src="./img/satelite.png" alt=""></div>
+                <div class="satelite"><img src="./img/satelite.png" alt=""></div>
+                <div class="satelite"><img src="./img/satelite.png" alt=""></div>
+            </div>
+        </div>
+        <script>
+        </script>
+    </body>
+</html>
