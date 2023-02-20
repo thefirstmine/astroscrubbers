@@ -11,105 +11,70 @@
                 background: #000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
                 margin: 0;
             }
+        
             .container {
-                width: 100vw;
-                height: 100vh;
-                position: relative;
+                /* number of satelites */
+                --n: 4;
+                /* duration */
+                --d: 12s;
+                background-image: url("./img/earth.webp");
+                background-position: center;
+                background-size: contain;
+                width: 500px;
+                height: 500px;
+                margin: 40px auto;
+                display: grid;
+                grid-template-columns: 100px;
+                grid-template-rows: 100px;
+                place-content: center;
             }
-            .earth {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
-            .satelites {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                
-
-            }
-            .satelite {
-                position:absolute;
-                width: 100px;
-                height: 100px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                overflow: hidden;
-                margin: 120px;
-
-                -webkit-animation: orbit2 4s linear infinite; /* Chrome, Safari 5 */
-                -moz-animation: orbit2 4s linear infinite; /* Firefox 5-15 */
-                -o-animation: orbit2 4s linear infinite; /* Opera 12+ */
-                animation: orbit2 4s linear infinite; /* Chrome, Firefox 16+, 
-                                                     IE 10+, Safari 5 */
-
-            }
+        
             .satelite::before {
                 content: "";
             }
-            .satelite:nth-child(1) {
-                position:absolute;
-                top: 0;
-                left: 0;
-                animation: orbit2 5s linear infinite;
+
+            .satelite {
+                grid-area: 1/1;
+                line-height: 100px;
+                text-align: center;
+                animation: spin var(--d) linear infinite;
+                transform: rotate(0) translate(250px) rotate(0);
             }
-            .satelite:nth-child(2) {
-                top: 0;
-                right: 0;
-                animation: orbit2 5s linear infinite;
-            }
-            .satelite:nth-child(3) {
-                bottom: 0;
-                right: 0;
-                animation: orbit2 5s linear infinite;
-            }
-            .satelite:nth-child(4) {
-                bottom: 0;
-                left: 0;
-                animation: orbit2 5s linear infinite;
-            }
+        
             .satelite img {
                 width: 100%;
             }
-            .earth img {
-                width: 300px;
+        
+            @keyframes spin {
+                100% {
+                    transform: rotate(1turn) translate(250px) rotate(-1turn);
+                }
             }
-            @-webkit-keyframes orbit2 {
-                    from { 	-webkit-transform: rotate(0deg) translateX(250px) rotate(0deg); }
-                    to   {  -webkit-transform: rotate(360deg) translateX(250px) rotate(-360deg); }
-                }
-
-                @-moz-keyframes orbit2 {
-                    from { 	-moz-transform: rotate(0deg) translateX(250px) rotate(0deg); }
-                    to   {  -moz-transform: rotate(360deg) translateX(250px) rotate(-360deg); }
-                }
-
-                @-o-keyframes orbit2 {
-                    from { 	-o-transform: rotate(0deg) translateX(250px) rotate(0deg); }
-                    to   {  -o-transform: rotate(360deg) translateX(250px) rotate(-360deg); }
-                }
-
-                @keyframes orbit2 {
-                    from { 	transform: rotate(0deg) translateX(250px) rotate(0deg); }
-                    to   {  transform: rotate(360deg) translateX(250px) rotate(-360deg); }
-}
+        
+            .satelite:nth-child(1) {
+                animation-delay: calc(-0*var(--d)/var(--n))
+            }
+        
+            .satelite:nth-child(2) {
+                animation-delay: calc(-1*var(--d)/var(--n))
+            }
+        
+            .satelite:nth-child(3) {
+                animation-delay: calc(-2*var(--d)/var(--n))
+            }
+        
+            .satelite:nth-child(4) {
+                animation-delay: calc(-3*var(--d)/var(--n))
+            }
         </style>
     </head>
 
     <body>
         <div class="container">
-            <div class="earth">
-                <img src="./img/earth.webp" alt="">
-            </div>
-            <div class="satelites">
-                <div class="satelite"><img src="./img/satelite.png" alt=""></div>
-                <div class="satelite"><img src="./img/satelite.png" alt=""></div>
-                <div class="satelite"><img src="./img/satelite.png" alt=""></div>
-                <div class="satelite"><img src="./img/satelite.png" alt=""></div>
-            </div>
+            <div class="satelite"><img src="./img/satelite.png" alt=""></div>
+            <div class="satelite"><img src="./img/satelite.png" alt=""></div>
+            <div class="satelite"><img src="./img/satelite.png" alt=""></div>
+            <div class="satelite"><img src="./img/satelite.png" alt=""></div>
         </div>
         <script>
         </script>
